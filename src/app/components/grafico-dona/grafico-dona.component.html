@@ -1,0 +1,8 @@
+<div class="card">
+    <h4 class="card-title">{{ dataGrafico.leyenda }}</h4>
+    <div class="card-body">
+        <div style="display: block">
+            <canvas baseChart [data]="dataGrafico.data" [labels]="dataGrafico.labels" [chartType]="dataGrafico.type"></canvas>
+        </div>
+    </div>
+</div>
