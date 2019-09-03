@@ -14,9 +14,11 @@ import { RegisterComponent } from './login/register.component';
 //import { IncrementadorComponent } from './components/incrementador/incrementador.component';
 //import { GraficoDonaComponent } from './components/grafico-dona/grafico-dona.component';
 
+// SERVICIOS
+import { ServiceModule } from './services/service.module';
+
 // TEMPORAL
 import { FormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     APP_ROUTES,
     PagesModule,
-    FormsModule
+    FormsModule,
+    ServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
