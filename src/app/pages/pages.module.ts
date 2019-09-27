@@ -12,6 +12,9 @@ import { PAGES_ROUTES } from './pages.routes';
 // ng2 - Charts
 import { ChartsModule } from 'ng2-charts';
 
+// Pipe module
+import { PipesModule } from '../pipes/pipes.module';
+
 // TEMPORAL
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
@@ -19,6 +22,8 @@ import { CommonModule } from '@angular/common';
 import { AccoutSettingsComponent } from './accout-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 @NgModule({
     declarations: [
@@ -30,7 +35,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
       GraficoDonaComponent,
       AccoutSettingsComponent,
       PromesasComponent,
-      RxjsComponent
+      RxjsComponent,
+      ProfileComponent
     ],
     exports: [
         PagesComponent,
@@ -43,7 +49,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         PAGES_ROUTES,
         FormsModule,
         ChartsModule,
-        CommonModule
+        CommonModule,
+        PipesModule
     ]
   })
   export class PagesModule { }
