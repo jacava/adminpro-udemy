@@ -20,6 +20,7 @@ import { ServiceModule } from './services/service.module';
 // TEMPORAL
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
