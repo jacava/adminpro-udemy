@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SubirArchivoService } from '../../services/subir-archivo/subir-archivo.service';
 import { ModalUploadService } from './modal-upload.service';
 
+import swal from 'sweetalert';
+
 @Component({
   selector: 'app-modal-upload',
   templateUrl: './modal-upload.component.html',
@@ -14,8 +16,7 @@ export class ModalUploadComponent implements OnInit {
 
   constructor( public _subirArchivoService: SubirArchivoService, public _modalUploadService: ModalUploadService ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   subirImagen() {
     this._subirArchivoService.subirArchivo( this.imagenSubir, this._modalUploadService.tipo, this._modalUploadService.id )

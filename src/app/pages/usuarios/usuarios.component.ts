@@ -3,7 +3,8 @@ import { Usuario } from '../../models/usuario.model';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { ModalUploadService } from '../../components/modal-upload/modal-upload.service';
 
-declare var swal: any;
+//declare var swal: any;
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-usuarios',
@@ -26,7 +27,7 @@ export class UsuariosComponent implements OnInit {
       .subscribe( resp => this.cargarUsuarios() );
   }
 
-  mostrarModal( id: string) {
+  mostrarModal( id: string ) {
     this._modalUploadService.mostrarModal( 'usuarios', id );
   }
 
@@ -88,7 +89,7 @@ export class UsuariosComponent implements OnInit {
       title: 'Está seguro?',
       text: 'Esta a punto de borrar a ' + usuario.nombre,
       icon: 'warning',
-      buttons: true,
+      buttons: [true, "Aceptar"],
       dangerMode: true,
     }).then( borrar => {
       console.log( borrar );

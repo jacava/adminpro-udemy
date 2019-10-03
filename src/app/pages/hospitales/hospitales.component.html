@@ -1,0 +1,91 @@
+<div *ngIf="!nuevoHospital" class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input #input (keyup)="buscarHospital( input.value )" type="text" class="form-control" placeholder="Buscar hospital...">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="cargando" class="row">
+    <div class="col-sm-12">
+        <div class="alert alert-warning text-center">
+            <strong>Cargando</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="nuevoHospital" class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Alta de Hospital</h3>
+                <input #hospital type="text" class="form-control" placeholder="Nombre del hospital...">
+                <div class="text-center">
+                    <button (click)="cerrarModalCrearHospital()" class="btn btn-danger btn-space">Cancelar</button>
+                    <button (click)="crearHospital( hospital.value )" class="btn btn-primary btn-space">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="!nuevoHospital" class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="card-title">Hospitales registrados ( <small>{{ totalRegistros }}</small> )</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <button (click)="abrirModalCrearHospital()" type="button" class="btn waves-effect waves-light btn-rounded btn-primary"> 
+                            <i class="fa fa-hospital-o"> </i>
+                            Crear hospital op1
+                        </button>
+                        <button (click)="crearHospital2()" type="button" class="btn waves-effect waves-light btn-rounded btn-primary"> 
+                                <i class="fa fa-hospital-o"> </i>
+                                Crear hospital op2
+                            </button>
+                    </div>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let hospital of hospitales">
+                            <td class="w-70">
+                                <img (click)="mostrarModal( hospital._id )" [src]="hospital.img | imagen:'hospital'" class="img-50 img-circle pointer">
+                            </td>
+                            <td>
+                                <input type="text" [(ngModel)]="hospital.nombre" class="form-control" placeholder="Nombre del hospital...">
+                                <td>
+                                    <button (click)="guardarhospital( hospital )" class="btn btn-primary">
+                                <i class="fa fa-save"></i>
+                            </button>
+                                    <button (click)="borrarhospital( hospital )" class="btn btn-danger">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                                </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button (click)="cambiarDesde(-5)" class="btn btn-secondary">Anteriores</button>
+                <button (click)="cambiarDesde(5)" class="btn btn-secondary">Siguientes</button>
+
+            </div>
+        </div>
+    </div>
+</div>

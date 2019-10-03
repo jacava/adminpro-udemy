@@ -33,6 +33,8 @@ export class UsuarioService {
       this.token = '';
       this.usuario = null;
     }
+
+    return this.token;
   }
 
   guardarStorage( id: string, token: string, usuario: Usuario ) {
