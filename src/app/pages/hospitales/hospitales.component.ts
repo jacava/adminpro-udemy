@@ -38,6 +38,7 @@ export class HospitalesComponent implements OnInit {
       .subscribe( (resp: any) => {
         this.hospitales = resp.hospitales;
         this.totalRegistros = resp.total;
+        console.log(resp);
       });
 
     this.cargando = false;
@@ -135,7 +136,7 @@ export class HospitalesComponent implements OnInit {
   cambiarDesde( valor: number ) {
     let desde = this.desde + valor;
 
-    if( desde >= this.totalRegistros) {
+    if( desde !== 0 && desde >= this.totalRegistros) {
       return;
     }
 
@@ -148,7 +149,7 @@ export class HospitalesComponent implements OnInit {
     } else {
       this.desde += valor;
     }
-
+    
     this.cargarHospitales();
   }
 }
